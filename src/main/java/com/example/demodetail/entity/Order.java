@@ -11,6 +11,10 @@ public class Order {
 
     private String orderNumber;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+
     @ManyToMany(mappedBy = "orders", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Set<Product> products;
 
